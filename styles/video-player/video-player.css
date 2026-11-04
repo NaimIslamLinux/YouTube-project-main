@@ -1,0 +1,6 @@
+.page-grid {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin-top: 20px;
+    column-gap: 20px;
+}
