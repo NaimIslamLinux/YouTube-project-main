@@ -137,6 +137,13 @@
     opacity: 0.7;
 }
 
+/*.    For bigger screen.  */
+@media (max-width: 2500px) {
+	.video-grid {    
+		grid-template-columns: repeat(4, minmax(320px,1fr));  
+	}
+  }
+
 /* for halg window/tab   */
 @media (max-width: 1080px) {
     .video-grid {
