@@ -13,6 +13,10 @@
     margin: 0 10px;
 }
 
+.video-player-tag {
+    border-radius: 20px;
+}
+
 .video-details .video-title .player-video-title {
     margin-bottom: 10px;
     font-size: 45px;
