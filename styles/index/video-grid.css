@@ -138,7 +138,7 @@
 }
 
 /*.    For bigger screen.  */
-@media (max-width: 2500px) {
+@media (min-width: 2500px) {
 	.video-grid {    
 		grid-template-columns: repeat(4, minmax(320px,1fr));  
 	}
