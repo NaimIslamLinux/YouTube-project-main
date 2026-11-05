@@ -92,7 +92,7 @@
     margin: 0 5px;
     padding: 10px;
     cursor: pointer;
-    background: rgba(0,0,0,0.2);
+    background: rgba(155,155,155,0.2);
 }
 
 .video-details .player-video-action-state .like-badlike-button-conteiner {
@@ -101,7 +101,7 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    background: rgba(0,0,0,0.2);
+    background: rgba(155,155,155,0.2);
     padding: 0 12px;
     border-radius: 40px;
     margin-right: 10px;
@@ -128,4 +128,23 @@
     bottom: 0;
     background: var(--deep-border-color);
     width: 3px;
+}
+
+.video-details .video-description {
+    background: rgba(155,155,155,0.2);
+    width: 100%;
+    height: 150px;
+    border-radius: 20px;
+    padding: 20px;
+    padding-right: 0;
+    overflow-y: auto;
+    cursor: pointer;
+}
+
+.video-details .video-description::-webkit-scrollbar {
+    display: none;
+}
+
+.video-details .video-description .player-video-metadata {
+    font-weight: bold;
 }
