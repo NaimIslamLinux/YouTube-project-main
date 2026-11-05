@@ -111,6 +111,11 @@
     margin-right: 10px;
 }
 
+.video-details .player-video-action-state .like-badlike-button-conteiner .video-bad-like-button img,
+.comment-conteienr .comment-bad-like-button img {
+    transform: rotateY(160deg);
+}
+
 .video-details .player-video-action-state .like-badlike-button-conteiner button {
     height: 100%;
     width: 100%;
