@@ -148,3 +148,123 @@
 .video-details .video-description .player-video-metadata {
     font-weight: bold;
 }
+
+.player-section .video-comment-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    row-gap: 40px;
+}
+
+.video-comment-section .comments-counter,
+.video-comment-section .total-comments {
+    font-size: 30px;
+}
+
+.video-comment-section .user-video-comment-input {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.video-comment-section .user-video-comment-input .user-profile-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.video-comment-section .user-video-comment-input .user-comment-input {
+    flex: 1;
+    border: 0 solid var(--deep-bg-color);
+    background: transparent;
+    border-bottom-width: 4px;
+}
+
+.video-comment-section .user-video-comment-input .user-comment-input:focus {
+    border: 0 solid var(--deep-bg-color);
+    border-bottom-width: 4px;
+    outline: none;
+}
+
+.video-comment-section .player-video-comment-list-grid {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+.video-comment-section .player-video-comment-list-grid .comment-conteienr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.video-comment-section .comment-conteienr .left-section {
+    margin-right: 20px;
+}
+
+.video-comment-section .comment-conteienr .left-section .commenter-profile-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.video-comment-section .comment-conteienr .middle-section {
+    flex: 1;
+}
+
+.video-comment-section .middle-section .commenter-username .comment-duration {
+    color: rgba(0,0,0,0.5);
+}
+
+.video-comment-section .middle-section .commenter-comment {
+    margin-top: 10px;
+}
+
+.video-comment-section .middle-section .comment-action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.video-comment-section .middle-section .comment-button {
+    width: 40px;
+    height: 40px;
+    padding: 5px 10px;
+    margin: 0 15px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.video-comment-section .middle-section .comment-button:hover {
+    background: rgba(155,155,155,0.5);
+}
+
+.video-comment-section .middle-section .comment-total-like-counter {
+    font-size: 18px;
+    color: rgba(0,0,0,0.8);
+}
+
+.video-comment-section .middle-section .reply-button {
+    width: auto;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.video-comment-section .comment-conteienr .right-section {
+    /*  Need code for comment more option    */
+}
