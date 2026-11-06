@@ -58,25 +58,25 @@
 
         <div class="player-section">
             <div class="video-player">
-                <video width="100%" height="100%" controls poster="images/thumbnails/video-001.jpg" class="video-player-tag">
+                <video width="100%" height="100%" controls poster="images/thumbnails/video-001.jpg" class="video-player-tag js-video-player-tag">
                     <source src="video/video.MP4" type="video/mp4">
                 </video>
             </div>
             <div class="video-details">
               <div class="video-title">
-                <h1 class="player-video-title">
+                <h1 class="player-video-title js-player-video-title">
                   JavaScript full course from beggainer to pro free !
                 </h1>
               </div>
               <div class="video-action-button-state">
                 <div class="player-video-aouth">
                   <div class="start-section">
-                    <img src="images/channels/supersimpledev.jpg" alt="Channel profile image">
+                    <img class="js-player-video-aouth-image" src="images/channels/supersimpledev.jpg" alt="Channel profile image">
                   </div>
                   <div class="center-section">
-                    <h2 class="aouth-channel-name">SuperSimpleDev</h2>
+                    <h2 class="aouth-channel-name js-aouth-channel-name">SuperSimpleDev</h2>
                     <p class="subscriber">
-                      <span class="subscriber-counter">2.5M</span> subscriber
+                      <span class="subscriber-counter js-subscriber-counter">2.5M</span> subscriber
                     </p>
                   </div>
                   <div class="end-section">
@@ -86,7 +86,7 @@
                 <div class="player-video-action-state">
                   <div class="like-badlike-button-conteiner">
                     <button class="video-like-button video-action-button"><img src="images/icons/thumbs-up-regular-full.svg" alt="Like button"></button>
-                    <span class="video-like-counter">1M</span>
+                    <span class="video-like-counter js-video-like-counter">1M</span>
                     <button class="video-bad-like-button video-action-button"><img src="images/icons/thumbs-down-regular-full.svg" alt="Bad Like button"></button>
                   </div>
                   <button class="video-shere-button video-action-button"><img src="images/icons/share-from-square-regular-full.svg" alt="Video shere button"></button>
@@ -97,10 +97,10 @@
               </div>
               <div class="video-description">
                 <p class="player-video-metadata">
-                  <span class="video-views">5M views</span>
-                  <span class="video-uploaded">2y ago</span>
+                  <span class="video-views js-video-view">5M views</span>
+                  <span class="video-uploaded js-video-uploaded">2y ago</span>
                 </p>
-                <p class="player-video-description">
+                <p class="player-video-description js-player-video-description">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae assumenda error nam aliquid ab nihil odio repellat explicabo fugiat quasi dignissimos doloribus ad perferendis recusandae pariatur debitis, aliquam quisquam eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ea corporis aliquid quam officiis? Voluptatum distinctio harum amet suscipit explicabo perspiciatis aspernatur, qui exercitationem hic minima labore. Voluptatum natus dolore consectetur, quam at porro pariatur soluta consequatur provident blanditiis, sint, quisquam mollitia commodi aspernatur accusantium corrupti quibusdam dicta hic facilis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam possimus accusamus, tempora fugit nobis cupiditate! Molestias ipsum vero iste error veniam placeat beatae obcaecati, id recusandae officiis at architecto explicabo?
                 </p>
               </div>
@@ -108,7 +108,7 @@
             <div class="video-comment-section">
               <div class="player-video-comment-state">
                 <h1 class="comments-counter">
-                  <span class="total-comments">566 </span>
+                  <span class="total-comments js-total-comments">566 </span>
                   Comments
                 </h1>
               </div>
@@ -526,8 +526,13 @@
 
     </div>
 
-    <script type="module" src="scripts/video-player.js"></script>
+    <!-- This script contain all of the JavaScript of this page -->
+     <!-- Header -->
     <script type="module" src="scripts/header/button.js"></script>
     <script type="module" src="scripts/header/search.js"></script>
+    <!-- Main page -->
+    <script type="module" src="scripts/video-player/video-player.js"></script>
+    <script type="module" src="scripts/video-player/player-section.js"></script>
+    <script type="module" src="scripts/video-player/other-video.js"></script>
   </body>
 </html>

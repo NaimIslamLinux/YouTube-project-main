@@ -142,7 +142,7 @@
 .video-details .video-description {
     background: rgba(155,155,155,0.2);
     max-width: 900px;
-    height: 150px;
+    max-height: 150px;
     border-radius: 20px;
     padding: 15px;
     overflow-y: auto;

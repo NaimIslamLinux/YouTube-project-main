@@ -13,7 +13,10 @@ const videos = [
     bgColor: "#e8eaf6",
     stateColor: "#3949ab",
     type: "video",
-    category: "Education"
+    category: "Education",
+    likes: 850000,
+    commentId: "comment-001",
+    comments: 12500
   },
   {
     id: "video-002",
@@ -27,7 +30,10 @@ const videos = [
     bgColor: "#fff3cd",
     stateColor: "#856404",
     type: "video",
-    category: "Education"
+    category: "Education",
+    likes: 620000,
+    commentId: "comment-002",
+    comments: 9800
   },
   {
     id: "video-003",
@@ -41,7 +47,10 @@ const videos = [
     bgColor: "#e0f2f1",
     stateColor: "#00796b",
     type: "video",
-    category: "Education"
+    category: "Education",
+    likes: 410000,
+    commentId: "comment-003",
+    comments: 7200
   },
   {
     id: "video-004",
@@ -55,7 +64,10 @@ const videos = [
     bgColor: "#fbe9e7",
     stateColor: "#d84315",
     type: "video",
-    category: "Tech"
+    category: "Tech",
+    likes: 145,
+    commentId: "comment-004",
+    comments: 32
   },
   {
     id: "video-005",
@@ -69,7 +81,10 @@ const videos = [
     bgColor: "#f3e5f5",
     stateColor: "#8e24aa",
     type: "video",
-    category: "Education"
+    category: "Education",
+    likes: 52000,
+    commentId: "comment-005",
+    comments: 1100
   },
   {
     id: "video-006",
@@ -83,7 +98,10 @@ const videos = [
     bgColor: "#e8f5e9",
     stateColor: "#2e7d32",
     type: "video",
-    category: "Gaming"
+    category: "Gaming",
+    likes: 28000,
+    commentId: "comment-006",
+    comments: 850
   },
   {
     id: "video-007",
@@ -97,7 +115,10 @@ const videos = [
     bgColor: "#fce4ec",
     stateColor: "#c2185b",
     type: "video",
-    category: "Anime"
+    category: "Anime",
+    likes: 9500,
+    commentId: "comment-007",
+    comments: 420
   },
   {
     id: "video-008",
@@ -111,7 +132,10 @@ const videos = [
     bgColor: "#e1f5fe",
     stateColor: "#0277bd",
     type: "video",
-    category: "Education"
+    category: "Education",
+    likes: 18000,
+    commentId: "comment-008",
+    comments: 650
   },
   {
     id: "video-009",
@@ -125,7 +149,10 @@ const videos = [
     bgColor: "#fce4ec",
     stateColor: "#ad1457",
     type: "music",
-    category: "Music"
+    category: "Music",
+    likes: 28000000,
+    commentId: "comment-009",
+    comments: 1200000
   }
 ];
 
@@ -170,4 +197,14 @@ export function loadVideos() {
   return videos
 
 };
+
+export function getVideo(videoId) {
+  let matchingVideo;
+  videos.forEach(video => {
+    if(videoId === video.id) {
+      matchingVideo = video;
+    }
+  });
+  return matchingVideo;
+}
 console.log(loadVideos());
