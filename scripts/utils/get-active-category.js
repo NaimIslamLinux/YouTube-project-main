@@ -1,3 +1,8 @@
 export function getActiveCategory() {
-  return document.querySelector('.active').innerHTML;
+  const currectActiveCatergoryButtonEl = document.querySelector('.active');
+  if(currectActiveCatergoryButtonEl) {
+  return currectActiveCatergoryButtonEl.innerHTML;
+  } else {
+    return 'no-category';
+  }
 }
