@@ -1,5 +1,5 @@
-import {  } from '../data/videos.js';
-import { channels } from '../data/channels.js';
+import {  } from '../../data/videos.js';
+import { channels } from '../../data/channels.js';
 
 export function renderVideoGrid(videosData) {
     const videoGridEl = document.querySelector('.js-video-grid');
