@@ -8,7 +8,7 @@ const channelId = url.searchParams.get('channelId');
 const video = getVideo(videoId);
 const channel = getChannel(channelId);
 
-document.querySelector('.js-video-player-tag').poster = video.thumbnail;
+// document.querySelector('.js-video-player-tag').src = video.videoUrl;
 
 document.querySelector('.js-player-video-title').innerHTML = video.title;
 

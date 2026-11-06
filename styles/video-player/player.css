@@ -13,11 +13,21 @@
     margin: 0 10px;
 }
 
-.video-player-tag {
-    border-radius: 20px;
+.video-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.video-player iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .video-details .video-title .player-video-title {
+    margin-top: 10px;
     margin-bottom: 10px;
     font-size: 30px;
 }
@@ -160,8 +170,8 @@
 .player-section .video-comment-section {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
-    row-gap: 40px;
+    margin-top: 20px;
+    row-gap: 10px;
 }
 
 .video-comment-section .comments-counter,
