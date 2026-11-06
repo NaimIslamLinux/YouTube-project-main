@@ -141,11 +141,10 @@
 
 .video-details .video-description {
     background: rgba(155,155,155,0.2);
-    width: 100%;
+    max-width: 900px;
     height: 150px;
     border-radius: 20px;
-    padding: 20px;
-    padding-right: 0;
+    padding: 15px;
     overflow-y: auto;
     cursor: pointer;
 }
@@ -192,7 +191,7 @@
     flex: 1;
     border: 0 solid var(--deep-bg-color);
     background: transparent;
-    border-bottom-width: 4px;
+    border-bottom-width: 2px;
 }
 
 .video-comment-section .user-video-comment-input .user-comment-input:focus {
@@ -236,6 +235,7 @@
 
 .video-comment-section .middle-section .commenter-comment {
     margin-top: 10px;
+    font-size: 18px;
 }
 
 .video-comment-section .middle-section .comment-action {
