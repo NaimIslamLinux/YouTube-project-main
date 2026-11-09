@@ -1,6 +1,6 @@
 import { getActiveCategory } from "../scripts/utils/get-active-category.js";
 
-const videos = [
+export const videos = [
   {
     id: "video-001",
     title: "HTML & CSS Full Course - Beginner to Pro",
