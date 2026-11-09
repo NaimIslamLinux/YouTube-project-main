@@ -1,5 +1,6 @@
 import {  } from '../../data/videos.js';
 import { channels } from '../../data/channels.js';
+import { numToString } from "../utils/format-number-to-string.js";
 
 export function renderVideoGrid(videosData) {
     const videoGridEl = document.querySelector('.js-video-grid');
@@ -54,7 +55,7 @@ export function renderVideoGrid(videosData) {
             ${channelVerificationHtml}
             ${videoTypeHtml}
             <span class="video-views">
-              ${video.views}
+              ${numToString(video.views)} views
             </span>
             <span class="video-updoad-duration">
               ${video.uploaded}
