@@ -8,7 +8,7 @@ videos.forEach(video => {
     const channel = getChannel(video.channelId);
     videoGridHtml += 
     `
-        <div class="video-preview">
+        <div class="video-preview" onclick="window.location.href = 'video-player.html?videoId=${video.id}&channelId=${video.channelId}'">
         <div class="left-section">
             <img src="${video.thumbnail}" alt="video thumbnail" class="video-thumbnail">
             <span class="video-duration">${video.duration}</span>
