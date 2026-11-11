@@ -1,4 +1,5 @@
 import { getActiveCategory } from "../scripts/utils/get-active-category.js";
+import { formatUploaded } from "../scripts/utils/format-uploaded.js";
 
 class Video {
   constructor(item) {
@@ -8,7 +9,7 @@ class Video {
     this.videoUrl = `https://www.youtube.com/embed/${item.id}`;
     this.channelId = item.snippet.channelId;
     this.thumbnail = item.snippet.thumbnails.high.url;
-    this.uploaded = item.snippet.publishedAt;
+    this.uploaded = formatUploaded(item.snippet.publishedAt);
     this.views = Number(item.statistics.viewCount);
     this.duration = item.contentDetails.duration;
     // this.category = item.snippet.categoryId;
@@ -35,6 +36,7 @@ export async function loadVideoFetch() {
   data.items.forEach( item => {
     videos.unshift(new Video(item));
   });
+  console.log(videos)
 };
 
 const searchedVideos = loadSearchedVideo();
