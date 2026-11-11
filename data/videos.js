@@ -11,7 +11,9 @@ class Video {
     this.uploaded = item.snippet.publishedAt;
     this.views = Number(item.statistics.viewCount);
     this.duration = item.contentDetails.duration;
-    this.category = item.snippet.categoryId;
+    // this.category = item.snippet.categoryId;
+    //youtube provide category as id or number
+    this.category = 'All';
     this.likes = Number(item.statistics.likeCount);
     this.comments = Number(item.statistics.commentCount);
     // Youtube does't provide this so i kept it with my custom design 
@@ -23,20 +25,16 @@ class Video {
 
 export let videos = [];
 
-loadVideoFetch().then(data => {
-  data.items.forEach( item => {
-    videos.unshift(new Video(item));
-  })
-});
-
-async function loadVideoFetch() {
+export async function loadVideoFetch() {
   const apiKey = 'AIzaSyC4IVkzcsid2yPUn8vLUpUyj6lyEjJpKz4';
   const part = 'snippet,statistics,contentDetails'
-  const url = `https://www.googleapis.com/youtube/v3/videos?part=${part}&chart=mostPopular&maxResult=10&regionCode=BD&key=${apiKey}`;
+  const url = `https://www.googleapis.com/youtube/v3/videos?part=${part}&chart=mostPopular&maxResults=10&regionCode=BD&key=${apiKey}`;
 
   const respons = await fetch(url);
   const data = await respons.json();
-  return data;
+  data.items.forEach( item => {
+    videos.unshift(new Video(item));
+  });
 };
 
 const searchedVideos = loadSearchedVideo();
@@ -71,7 +69,7 @@ export function loadSuggestedVideo(category) {
   })
 };
 
-export function loadVideos() {
+export function loadVideos(fun) {
   if(searchedVideos !== null) {
     return searchedVideos;
   } else {
