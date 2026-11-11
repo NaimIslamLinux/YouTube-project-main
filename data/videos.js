@@ -1,5 +1,7 @@
 import { getActiveCategory } from "../scripts/utils/get-active-category.js";
 import { formatUploaded } from "../scripts/utils/format-uploaded.js";
+import { formatIsoDuration } from "../scripts/utils/format-duration.js";
+formatIsoDuration
 
 class Video {
   constructor(item) {
@@ -11,7 +13,7 @@ class Video {
     this.thumbnail = item.snippet.thumbnails.high.url;
     this.uploaded = formatUploaded(item.snippet.publishedAt);
     this.views = Number(item.statistics.viewCount);
-    this.duration = item.contentDetails.duration;
+    this.duration = formatIsoDuration(item.contentDetails.duration);
     // this.category = item.snippet.categoryId;
     //youtube provide category as id or number
     this.category = 'All';
