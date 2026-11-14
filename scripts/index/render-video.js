@@ -1,4 +1,4 @@
-import { channels } from '../../data/channels.js';
+import { channels, getChannel } from '../../data/channels.js';
 import { numToString } from "../utils/format-number-to-string.js";
 
 export function renderVideoGrid(videosData) {

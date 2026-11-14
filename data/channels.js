@@ -14,16 +14,17 @@ class Channel {
 export let channels = [];
 
 export async function loadChannelFetch() {
-  videos.forEach( video => {
-    getChannelFetch(video.channelId).then( data => {
-      data.forEach( item => {
-        channels.unshift(new Channel(item))
-      })
-    });
+  const channelsId = [... new Set(videos.map( video => video.channelId))];
+  const req = channelsId.map( id => {
+    return getChannelFetch(id);
+  });
+  const result = (await Promise.all(req)).flat();
+  result.map(item => {
+    channels.unshift(new Channel(item));
   })
 };
 
-export function getChannel(channelId) {
+export async function getChannel(channelId) {
   let matchingChannel;
   channels.forEach(channel => {
     if(channel.id === channelId) {
