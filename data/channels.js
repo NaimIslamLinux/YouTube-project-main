@@ -1,47 +1,27 @@
-export const channels = [
-  {
-    id: "channel-001",
-    name: "SuperSimpleDev",
-    image: "images/channels/supersimpledev.jpg",
-    verified: true,
-    subscribers: 1200000
-  },
-  {
-    id: "channel-002",
-    name: "freeCodeCamp.org",
-    image: "images/channels/freecodecamp.jpg",
-    verified: true,
-    subscribers: 11500000
-  },
-  {
-    id: "channel-003",
-    name: "GSN Ghost",
-    image: "images/channels/gsn-ghost.jpg",
-    verified: false,
-    subscribers: 125000
-  },
-  {
-    id: "channel-004",
-    name: "BlockCraft",
-    image: "images/channels/blockcraft.jpg",
-    verified: false,
-    subscribers: 850000
-  },
-  {
-    id: "channel-005",
-    name: "Shinobi Archive",
-    image: "images/channels/shinobi-archive.jpg",
-    verified: false,
-    subscribers: 420000
-  },
-  {
-    id: "channel-006",
-    name: "Ed Sheeran",
-    image: "images/channels/ed-sheeran.jpg",
-    verified: true,
-    subscribers: 57800000
+import { videos } from "./videos.js";
+
+class Channel {
+  constructor(item) {
+    this.id = item.id;
+    this.name = item.snippet.localized.title;
+    this.image = item.snippet.thumbnails.default.url;
+    //youtube dont provide if the channel is verifyed so i used isLinked to work with the verification state
+    this.verified = item.status.isLinked;
+    this.subscribers = item.statistics.subscriberCount;
   }
-];
+}
+
+export let channels = [];
+
+export async function loadChannelFetch() {
+  videos.forEach( video => {
+    getChannelFetch(video.channelId).then( data => {
+      data.forEach( item => {
+        channels.unshift(new Channel(item))
+      })
+    });
+  })
+};
 
 export function getChannel(channelId) {
   let matchingChannel;
@@ -51,4 +31,20 @@ export function getChannel(channelId) {
     }
   })
   return matchingChannel;
-}
+};
+
+async function getChannelFetch(id) {
+  try{
+    const apiKey = 'AIzaSyC4IVkzcsid2yPUn8vLUpUyj6lyEjJpKz4';
+    const part = 'snippet,statistics,status';
+    const url = `https://www.googleapis.com/youtube/v3/channels?part=${part}&id=${id}&key=${apiKey}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return data.items;
+  }
+  catch(error) {
+    console.log(`Error: ${error}`)
+  }
+};

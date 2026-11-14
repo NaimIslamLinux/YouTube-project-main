@@ -38,7 +38,6 @@ export async function loadVideoFetch() {
   data.items.forEach( item => {
     videos.unshift(new Video(item));
   });
-  console.log(videos)
 };
 
 const searchedVideos = loadSearchedVideo();
@@ -73,14 +72,13 @@ export function loadSuggestedVideo(category) {
   })
 };
 
-export function loadVideos(fun) {
+export function loadVideos() {
   if(searchedVideos !== null) {
     return searchedVideos;
   } else {
     return loadSuggestedVideo(getActiveCategory());
   }
   return videos
-
 };
 
 export function getVideo(videoId) {
