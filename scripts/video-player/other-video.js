@@ -2,6 +2,7 @@ import { videos } from '../../data/videos.js';
 import { getChannel } from '../../data/channels.js';
 import { numToString } from '../utils/format-number-to-string.js';
 
+export function renderOtherVideoGrid() {
 let videoGridHtml = ``;
 
 videos.forEach(video => {
@@ -34,3 +35,4 @@ videos.forEach(video => {
 });
 
 document.querySelector('.other-video-grid-section').innerHTML = videoGridHtml;
+}
