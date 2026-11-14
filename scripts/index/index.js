@@ -4,9 +4,8 @@ import { loadChannelFetch, getChannel } from '../../data/channels.js';
 
 async function loadIndexPage() {
     await loadVideoFetch();
-    loadChannelFetch();
-    console.log(getChannel('UC6tpyBt63bIKnnwfN78T0Pw'));
-    // renderVideoGrid(loadVideos());
+    await loadChannelFetch();
+    renderVideoGrid(loadVideos());
 };
 
 loadIndexPage();

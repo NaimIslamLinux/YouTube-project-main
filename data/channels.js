@@ -24,7 +24,7 @@ export async function loadChannelFetch() {
   })
 };
 
-export async function getChannel(channelId) {
+export function getChannel(channelId) {
   let matchingChannel;
   channels.forEach(channel => {
     if(channel.id === channelId) {
