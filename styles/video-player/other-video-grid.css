@@ -93,3 +93,33 @@
 .right-section .video-more-option:hover {
     background: var(--deep-bg-color);
 }
+
+/*.    For bigger screen.  */
+@media (min-width: 2500px) {
+	
+  }
+
+/* for halg window/tab   */
+@media (max-width: 1080px) {
+    .other-video-grid-section .video-preview {
+        flex-direction: column;
+    }
+
+    .left-section .video-thumbnail {
+        width: 700px;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .right-section .video-title {
+        font-size: 20px;
+    }
+}
+
+/* for mobile   */
+@media (max-width: 760px) {
+    .left-section .video-thumbnail {
+        width: 450px;
+    }
+}

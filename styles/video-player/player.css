@@ -287,3 +287,31 @@
 .video-comment-section .comment-conteienr .right-section {
     /*  Need code for comment more option    */
 }
+
+/*.    For bigger screen.  */
+@media (min-width: 2500px) {
+	
+  }
+
+/* for halg window/tab   */
+@media (max-width: 1080px) {
+    .player-section .video-comment-section{
+        display: none;
+        background: red;
+        width: 0;
+        height: 0;
+    }
+
+    .video-description {
+        height: 8px;
+    }
+
+    .video-details .video-title .player-video-title {
+        font-size: 22px;
+    }
+}
+
+/* for mobile   */
+@media (max-width: 760px) {
+     
+}

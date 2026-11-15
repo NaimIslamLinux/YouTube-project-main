@@ -11,3 +11,21 @@
     column-gap: 5px;
     padding: 0 10px;
 }
+
+/*.    For bigger screen.  */
+@media (min-width: 2500px) {
+	
+  }
+
+/* for halg window/tab   */
+@media (max-width: 1080px) {
+    .page-grid {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* for mobile   */
+@media (max-width: 760px) {
+    
+}
