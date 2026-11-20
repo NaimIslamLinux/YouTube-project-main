@@ -38,6 +38,9 @@
     width: 280px;
     aspect-ratio: 16/9;
     border-radius: 15px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
 }
 
 .left-section .video-duration {
@@ -107,9 +110,6 @@
 
     .left-section .video-thumbnail {
         width: 700px;
-        aspect-ratio: 16/9;
-        object-fit: cover;
-        object-position: center;
     }
 
     .right-section .video-title {
