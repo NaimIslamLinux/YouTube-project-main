@@ -38,15 +38,11 @@ descriptionMoreButtonEl.addEventListener('click', () => {
     const descriptionEl = document.querySelector('.video-description');
     if(!isDescriptionOpen) {
         isDescriptionOpen = true;
-        descriptionEl.style.height = 'auto';
+        descriptionEl.classList.add('description-open');
         descriptionMoreButtonEl.textContent = "less...";
-        descriptionMoreButtonEl.style.background = 'transparent';
-        descriptionMoreButtonEl.style.backdropFilter = 'none';
     } else if(isDescriptionOpen) {
         isDescriptionOpen = false;
-        descriptionEl.style.height = '150px';
         descriptionMoreButtonEl.textContent = "more...";
-        descriptionMoreButtonEl.style.background = 'rgba(255,255,255,0.5)';
-        descriptionMoreButtonEl.style.backdropFilter = 'blur(5px)';
+        descriptionEl.classList.remove('description-open');
     }
 })
