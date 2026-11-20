@@ -27,24 +27,49 @@ class Video {
 };
 
 export let videos = [];
+export let searchedVideos = [];
+
+loadSearchedVideo().then( items => {
+  items.map( item => {
+    searchedVideos.unshift(new Video(item));
+  })
+})
 
 export async function loadVideoFetch() {
+try {
   const apiKey = 'AIzaSyC4IVkzcsid2yPUn8vLUpUyj6lyEjJpKz4';
   const part = 'snippet,statistics,contentDetails'
-  const url = `https://www.googleapis.com/youtube/v3/videos?part=${part}&chart=mostPopular&maxResults=10&regionCode=BD&key=${apiKey}`;
+  const url = `https://www.googleapis.com/youtube/v3/videos?part=${part}&chart=mostPopular&maxResults=50&regionCode=BD&key=${apiKey}`;
 
   const respons = await fetch(url);
   const data = await respons.json();
   data.items.forEach( item => {
     videos.unshift(new Video(item));
   });
+} catch(error) {
+  console.log(`Error from loadVideoFetch,Error code: ${error}`)
+}
 };
 
-const searchedVideos = loadSearchedVideo();
+export async function loadSearchedVideo() {
+try {
+  const videosId = await loadSearchedVideoId();
+  if(videosId === null || !videosId) {
+    return null;
+  }
+  const req = videosId.map( id => {
+    return getVideoFetch(id);
+  });
 
-function loadSearchedVideo() {
-  let matchingVideo = [];
+  return await Promise.all(req);
+} catch (error) {
+  console.log(`Error from loadSeachedVideo, Error code: ${error}`)
+}
+};
 
+async function loadSearchedVideoId() {
+try {
+  let matchingVideoId = [];
   const url = new URLSearchParams(window.location.search);
   let searchParams = url.get('search');
 
@@ -53,14 +78,39 @@ function loadSearchedVideo() {
   } 
   const search = searchParams.trim().toLowerCase();
   if(search === '') {
-    return null
+    return null;
   }
   
-  matchingVideo = videos.filter(video => {
-  return video.title.toLowerCase().includes(search)
+  const apiKey = 'AIzaSyC4IVkzcsid2yPUn8vLUpUyj6lyEjJpKz4';
+  const part = 'snippet'
+  const fetchUrl = `https://www.googleapis.com/youtube/v3/search?part=${part}&q=${encodeURIComponent(search)}&maxResults=20&key=${apiKey}`;
+
+  const respons = await fetch(fetchUrl);
+  const data = await respons.json();
+
+  const allId = data.items.map(item => {
+    return item.id.videoId;
   });
 
-  return matchingVideo;
+  matchingVideoId = allId.filter(id => id !== undefined);
+  return matchingVideoId;
+} catch(error) {
+  console.log(`Error from loadSearchedVideoId, Error code: ${error}`)
+}
+};
+
+async function getVideoFetch(id) {
+try {
+  const apiKey = 'AIzaSyC4IVkzcsid2yPUn8vLUpUyj6lyEjJpKz4';
+  const part = 'snippet,statistics,contentDetails'
+  const url = `https://www.googleapis.com/youtube/v3/videos?part=${part}&id=${id}&key=${apiKey}`;
+
+  const respons = await fetch(url);
+  const data = await respons.json();
+  return data.items[0];
+} catch(error) {
+  console.log(`Error from getVideoFetch,Error code: ${error}`)
+}
 };
 
 export function loadSuggestedVideo(category) {
@@ -74,6 +124,7 @@ export function loadSuggestedVideo(category) {
 
 export function loadVideos() {
   if(searchedVideos !== null) {
+
     return searchedVideos;
   } else {
     return loadSuggestedVideo(getActiveCategory());
